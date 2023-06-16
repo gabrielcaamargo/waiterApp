@@ -8,6 +8,7 @@ export const Board = styled.div`
   align-items: center;
   flex-direction: column;
   flex: 1;
+  justify-content: center;
 
   header {
     padding: 8px;
@@ -23,7 +24,6 @@ export const OrdersContainer = styled.div`
   flex-direction: column;
   width: 100%;
   margin-top: 24px;
-
   button {
     background-color: #FFF;
     border: 1px solid rgba(204, 204, 204, 0.4);
