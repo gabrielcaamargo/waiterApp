@@ -3,6 +3,7 @@ import { Container, CategoriesContainer, MenuContainer, Footer, FooterContainer 
 import Header from '../components/Header';
 import Categories from '../components/Categories';
 import Menu from '../components/Menu';
+import Button from '../components/Button';
 
 export default function Main() {
   return (
@@ -20,9 +21,13 @@ export default function Main() {
 
       </Container>
 
-      <FooterContainer>
-        <Footer></Footer>
-      </FooterContainer>
+      <Footer>
+        <FooterContainer>
+          <Button onPress={() => alert('Novo pedido')}>
+            Novo Pedido
+          </Button>
+        </FooterContainer>
+      </Footer>
 
     </>
   );
