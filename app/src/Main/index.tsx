@@ -1,12 +1,23 @@
-import { Text } from '../components/Text';
-import { Container } from './styles';
+import { Container, CategoriesContainer, MenuContainer, Footer, FooterContainer } from './styles';
 
 import Header from '../components/Header';
 
 export default function Main() {
   return (
-    <Container>
-      <Header />
-    </Container>
+    <>
+      <Container>
+        <Header />
+
+        <CategoriesContainer></CategoriesContainer>
+
+        <MenuContainer></MenuContainer>
+
+      </Container>
+
+      <FooterContainer>
+        <Footer></Footer>
+      </FooterContainer>
+
+    </>
   );
 }
