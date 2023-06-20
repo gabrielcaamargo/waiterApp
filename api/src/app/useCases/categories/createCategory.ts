@@ -12,6 +12,8 @@ export async function createCategory(request: Request, response: Response) {
 
     const category = await Category.create({ icon, name });
 
+    await category.save();
+
     response.status(201).json(category);
   } catch {
     response.status(500);

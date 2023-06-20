@@ -16,6 +16,8 @@ export async function createProduct(request: Request, response: Response) {
       ingredients: ingredients ? JSON.parse(ingredients) : []
     });
 
+    await product.save();
+
     response.status(201).json(product);
   } catch {
     response.status(500);

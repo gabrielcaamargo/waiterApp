@@ -8,6 +8,8 @@ export async function createOrder(request: Request, response: Response) {
 
     const order = await Order.create({ table, products });
 
+    await order.save();
+
     response.status(201).json(order);
   } catch {
     response.status(500);
