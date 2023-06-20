@@ -3,7 +3,7 @@ export const products = [
     _id: '6490e9348477dd03aeff508a',
     name: 'Hambúrguer com fritas',
     description: 'Hambúrguer acompanhado de fritas',
-    imagePath: '1687218484220-chicken.png',
+    imagePath: '1687263747811-chicken.png',
     price: 45,
     ingredients: [
       {
@@ -32,7 +32,7 @@ export const products = [
     _id: '6490f6de8477dd03aeff510d',
     name: 'Coca cola lata',
     description: 'Coquinha geladinha',
-    imagePath: '1687221982008-coca-cola.png',
+    imagePath: '1687263582371-coca-cola.png',
     price: 5,
     ingredients: [],
   }
