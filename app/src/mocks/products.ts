@@ -1,39 +1,40 @@
 export const products = [
   {
-    _id: '6372e040f52e37ef85fe2c5e',
-    name: 'Pizza quatro queijos',
-    description: 'Deliciosa pizza quatro queijos com borda simples',
-    imagePath: '1668472896991-quatro-queijos.png',
-    price: 40,
+    _id: '6490e9348477dd03aeff508a',
+    name: 'Hambúrguer com fritas',
+    description: 'Hambúrguer acompanhado de fritas',
+    imagePath: '1687218484220-chicken.png',
+    price: 45,
     ingredients: [
       {
-        name: 'Mussarela',
-        icon: '🧀',
-        _id: '6372e040f52e37ef85fe2c5f'
+        name: 'Hambúrguer',
+        icon: '🥩',
+        _id: '6490e9348477dd03aeff508b'
       },
       {
-        name: 'Parmesão',
-        icon: '🧀',
-        _id: '6372e040f52e37ef85fe2c60'
+        name: 'Tomate',
+        icon: '🍅',
+        _id: '6490e9348477dd03aeff508c'
       },
       {
-        name: 'Gouda',
-        icon: '🧀',
-        _id: '6372e040f52e37ef85fe2c61'
+        name: 'Fritas',
+        icon: '🥔',
+        _id: '6490e9348477dd03aeff508d'
       },
       {
-        name: 'Brie',
-        icon: '🧀',
-        _id: '6372e040f52e37ef85fe2c62'
+        name: 'Alface',
+        icon: '🥬',
+        _id: '6490e9348477dd03aeff508e'
       }
     ],
   },
   {
-    _id: '6372e276a381106c0f854cb3',
-    name: 'Coca cola',
-    description: 'Coca cola lata geladinha topzera',
-    imagePath: '1668473462705-coca-cola.png',
-    price: 7,
+    _id: '6490f6de8477dd03aeff510d',
+    name: 'Coca cola lata',
+    description: 'Coquinha geladinha',
+    imagePath: '1687221982008-coca-cola.png',
+    price: 5,
     ingredients: [],
-  },
+  }
+
 ];
