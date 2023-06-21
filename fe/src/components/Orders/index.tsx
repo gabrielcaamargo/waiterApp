@@ -1,11 +1,27 @@
 import { useEffect, useState } from 'react';
+
+import socketIo from 'socket.io-client';
+
 import { Order } from '../../types/Order';
 import OrdersBoard from '../OrdersBoard';
+
 import { Container } from './styles';
 import { api } from '../../utils/api';
 
+import { toast } from 'react-toastify';
+
 export default function Orders() {
   const [orders, setOrders] = useState<Order[]>([]);
+
+  useEffect(() => {
+    const socket = socketIo('http://localhost:3001', {
+      transports: ['websocket']
+    });
+
+    socket.on('order@new', (order) => {
+      setOrders((prevState) => prevState.concat(order));
+    });
+  }, []);
 
   useEffect(() => {
     api.get('/orders')

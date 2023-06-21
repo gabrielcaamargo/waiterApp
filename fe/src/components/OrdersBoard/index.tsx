@@ -88,7 +88,7 @@ export default function OrdersBoard({icon, title, orders, onCancelOrder, onChang
                 key={order._id}
                 onClick={() => handleOpenModal(order)}
               >
-                <strong>Mesa 2</strong>
+                <strong>Mesa {order.table}</strong>
                 <span>2 itens</span>
               </button>
             ))}
