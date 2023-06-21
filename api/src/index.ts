@@ -1,12 +1,16 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import http from 'node:http';
 import path from 'node:path';
-
+import { Server } from 'socket.io';
 import { router } from './router';
+
+const app = express();
+const server = http.createServer(app);
+export const io = new Server(server);
 
 mongoose.connect('mongodb://localhost:27017')
   .then(() => {
-    const app = express();
     const PORT = '3001';
 
     app.use(express.json());
@@ -19,7 +23,7 @@ mongoose.connect('mongodb://localhost:27017')
     app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
     app.use(router);
 
-    app.listen(PORT, () => console.log(`🚀 Server started at http://localhost:${PORT}`));
+    server.listen(PORT, () => console.log(`🚀 Server started at http://localhost:${PORT}`));
   })
   .catch(() => console.log('❌ Failed when connecting to mongo'));
 
