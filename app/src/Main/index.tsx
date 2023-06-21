@@ -28,7 +28,6 @@ export default function Main() {
     Promise.all([
       api.get('/categories'),
       api.get('/products')
-
     ]).then(([categoriesResponse, productsResponse]) => {
       setCategories(categoriesResponse.data);
       setProducts(productsResponse.data);
