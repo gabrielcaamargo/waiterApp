@@ -1,52 +1,57 @@
+import { useEffect, useState } from 'react';
 import { Order } from '../../types/Order';
 import OrdersBoard from '../OrdersBoard';
 import { Container } from './styles';
-
-const orders: Order[] = [
-  {
-    '_id': '648bb477bd3fd38efeedb8b4',
-    'table': '22',
-    'status': 'WAITING',
-    'products': [
-      {
-        'product': {
-          'name': 'Pizza quatro queijos',
-          'imagePath': '1686868144749-quatro-queijos.png',
-          'price': 40,
-        },
-        'quantity': 5,
-        '_id': '648bb477bd3fd38efeedb8b5'
-      },
-      {
-        'product': {
-          'name': 'Coca cola',
-          'imagePath': '1686868576059-coca-cola.png',
-          'price': 7,
-        },
-        'quantity': 3,
-        '_id': '648bb477bd3fd38efeedb8b6'
-      }
-    ],
-  }
-];
+import { api } from '../../utils/api';
 
 export default function Orders() {
+  const [orders, setOrders] = useState<Order[]>([]);
+
+  useEffect(() => {
+    api.get('/orders')
+      .then(({data}) => {
+        setOrders(data);
+      });
+  }, []);
+
+  const waitingOrders = orders.filter(order => order.status === 'WAITING');
+  const productionOrders = orders.filter(order => order.status === 'IN_PRODUCTION');
+  const doneOrders = orders.filter(order => order.status === 'DONE');
+
+  function handleCancelOrder(orderId: string) {
+    setOrders((prevState) => prevState.filter(order => order._id !== orderId));
+  }
+
+  function handleOrderStatusChange(orderId: string, status: Order['status']) {
+    setOrders((prevState) => prevState.map((order) => (
+      order._id === orderId
+        ? { ...order, status}
+        : order
+    )));
+  }
+
   return (
     <Container>
       <OrdersBoard
         icon="🕐️"
         title="Fila de espera"
-        orders={orders}
+        orders={waitingOrders}
+        onCancelOrder={handleCancelOrder}
+        onChangeOrderStatus={handleOrderStatusChange}
       />
       <OrdersBoard
         icon="🧑‍🍳"
         title="Em preparação"
-        orders={[]}
+        orders={productionOrders}
+        onCancelOrder={handleCancelOrder}
+        onChangeOrderStatus={handleOrderStatusChange}
       />
       <OrdersBoard
         icon="✅"
         title="Pronto"
-        orders={[]}
+        orders={doneOrders}
+        onCancelOrder={handleCancelOrder}
+        onChangeOrderStatus={handleOrderStatusChange}
       />
     </Container>
   );

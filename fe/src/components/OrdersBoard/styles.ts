@@ -8,7 +8,6 @@ export const Board = styled.div`
   align-items: center;
   flex-direction: column;
   flex: 1;
-  justify-content: center;
 
   > header {
     padding: 8px;
